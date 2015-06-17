@@ -44,3 +44,7 @@ const App = React.createClass({
 });
 
 module.exports = App;
+
+### Shout out
+
+react-shuffle is heavily inspired by Ryan Florences Magic Move demo https://youtu.be/z5e7kWSHWTg
