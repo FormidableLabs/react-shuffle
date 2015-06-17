@@ -100,8 +100,9 @@ const Clone = React.createClass({
     });
   },
   render() {
+    let style = {};
     if (this.props.style) {
-      let style = {
+      style = {
         top: this.getTweeningValue('top'),
         left: this.getTweeningValue('left'),
         opacity: this.props.fade ? this.getTweeningValue('opacity') : 1,
