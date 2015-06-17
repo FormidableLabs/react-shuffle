@@ -54,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kenwheeler/react-shuffle.git"
+    "url": "https://github.com/FormidableLabs/react-shuffle.git"
   },
   "keywords": [
     "react",
@@ -64,7 +64,7 @@
   "author": "Ken Wheeler",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kenwheeler/react-shuffle/issues"
+    "url": "https://github.com/FormidableLabs/react-shuffle/issues"
   },
-  "homepage": "https://github.com/kenwheeler/react-shuffle"
+  "homepage": "https://github.com/FormidableLabs/react-shuffle"
 }
