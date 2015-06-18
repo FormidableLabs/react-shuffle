@@ -25,9 +25,9 @@ const Clones = React.createClass({
         scale={this.props.scale}
         duration={this.props.duration}/>);
     });
-    return children.sort(function(a, b) {
-      return (a.key < b.key) ? -1 : (a.key > b.key) ? 1 : 0;
-    });
+    return children.sort((a, b) =>
+      (a.key < b.key) ? -1 : (a.key > b.key) ? 1 : 0
+    );
   },
 
   render() {
@@ -53,8 +53,7 @@ const Clone = React.createClass({
     }
   },
   componentWillAppear(cb) {
-    var self = this;
-    self.tweenState('opacity', {
+    this.tweenState('opacity', {
       easing: tweenState.easingTypes.easeOutSine,
       duration: this.props.duration,
       beginValue: this.props.initial ? 0 : 1,
@@ -63,8 +62,7 @@ const Clone = React.createClass({
     });
   },
   componentWillEnter(cb) {
-    var self = this;
-    self.tweenState('opacity', {
+    this.tweenState('opacity', {
       easing: tweenState.easingTypes.easeOutSine,
       duration: this.props.duration,
       beginValue: 0,
@@ -73,12 +71,11 @@ const Clone = React.createClass({
     });
   },
   componentWillLeave(cb) {
-    var self = this;
-    self.tweenState('opacity', {
+    this.tweenState('opacity', {
       easing: tweenState.easingTypes.easeOutSine,
       duration: this.props.duration,
       endValue: 0,
-      onEnd: function() {
+      onEnd: () => {
         try {
           cb()
         } catch (e) {
@@ -148,9 +145,8 @@ const Shuffle = React.createClass({
   },
 
   componentDidMount() {
-    var self = this;
     this._makePortal();
-    window.addEventListener('resize', self._renderClonesInitially);
+    window.addEventListener('resize', this._renderClonesInitially);
   },
 
   componentWillUnmount() {
@@ -163,10 +159,9 @@ const Shuffle = React.createClass({
   },
 
   componentDidUpdate(prevProps) {
-    var self = this;
     if (this.state.ready === false) {
-      this.setState({ready: true}, function() {
-        self._renderClonesInitially();
+      this.setState({ready: true}, () => {
+        this._renderClonesInitially();
       });
     } else {
       this._renderClonesToNewPositions(this.props);
@@ -241,15 +236,14 @@ const Shuffle = React.createClass({
   },
 
   _renderClonesInitially() {
-    var self = this;
-    let cloneProps = assign({}, self.props, {
-      positions: self._getPositions(),
+    let cloneProps = assign({}, this.props, {
+      positions: this._getPositions(),
       initial: this.props.initial,
       fade: this.props.fade,
       scale: this.props.scale,
       duration: this.props.duration
     });
-    React.render(<Clones {...cloneProps}/>, self._portalNode);
+    React.render(<Clones {...cloneProps}/>, this._portalNode);
     this.setState({ready: true});
   },
 
@@ -258,14 +252,14 @@ const Shuffle = React.createClass({
   },
 
   _childrenWithRefs() {
-    return React.Children.map(this.props.children, (child) => {
-      return cloneWithProps(child, {ref: child.key});
-    });
+    return React.Children.map(this.props.children, (child) =>
+      cloneWithProps(child, {ref: child.key})
+    );
   },
 
   render() {
     var showContainer = this.props.initial ? 0 : 1;
-    if(this.state.ready) {
+    if (this.state.ready) {
       showContainer = 0;
     }
     return (
@@ -278,4 +272,4 @@ const Shuffle = React.createClass({
   }
 });
 
-module.exports = Shuffle;
+export default Shuffle;
