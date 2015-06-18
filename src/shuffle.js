@@ -25,9 +25,9 @@ const Clones = React.createClass({
         scale={this.props.scale}
         duration={this.props.duration}/>);
     });
-    return children.sort(function(a, b) {
-      return (a.key < b.key) ? -1 : (a.key > b.key) ? 1 : 0;
-    });
+    return children.sort((a, b) =>
+      (a.key < b.key) ? -1 : (a.key > b.key) ? 1 : 0
+    );
   },
 
   render() {
@@ -75,7 +75,7 @@ const Clone = React.createClass({
       easing: tweenState.easingTypes.easeOutSine,
       duration: this.props.duration,
       endValue: 0,
-      onEnd: function() {
+      onEnd: () => {
         try {
           cb()
         } catch (e) {
@@ -252,14 +252,14 @@ const Shuffle = React.createClass({
   },
 
   _childrenWithRefs() {
-    return React.Children.map(this.props.children, (child) => {
-      return cloneWithProps(child, {ref: child.key});
-    });
+    return React.Children.map(this.props.children, (child) =>
+      cloneWithProps(child, {ref: child.key})
+    );
   },
 
   render() {
     var showContainer = this.props.initial ? 0 : 1;
-    if(this.state.ready) {
+    if (this.state.ready) {
       showContainer = 0;
     }
     return (
