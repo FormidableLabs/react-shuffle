@@ -32,3 +32,4 @@ bower_components/
 .tmp
 dist
 /src/scripts/main.js
+npm-debug.log
