@@ -2,11 +2,11 @@
 /*global window, document, getComputedStyle*/
 
 import React from 'react/addons';
-import cloneWithProps from 'react/lib/cloneWithProps';
 import assign from 'object-assign';
 import tweenState from 'react-tween-state';
 
 let ReactTransitionGroup = React.addons.TransitionGroup;
+let cloneWithProps = React.addons.cloneWithProps;
 
 const Clones = React.createClass({
   displayName: 'ShuffleClones',
