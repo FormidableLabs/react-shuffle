@@ -1,12 +1,11 @@
 /* eslint no-unused-vars:0 */
 /*global window, document, getComputedStyle*/
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDom from 'react-dom';
 import assign from 'object-assign';
 import tweenState from 'react-tween-state';
-
-let ReactTransitionGroup = React.addons.TransitionGroup;
-let cloneWithProps = React.addons.cloneWithProps;
+import ReactTransitionGroup from 'react-addons-transition-group';
 
 const Clones = React.createClass({
   displayName: 'ShuffleClones',
@@ -112,7 +111,7 @@ const Clone = React.createClass({
     }
     let key = this.props.key;
     return (
-      cloneWithProps(this.props.child, {style, key})
+      React.cloneElement(this.props.child, {style, key})
     )
   }
 })
@@ -150,7 +149,7 @@ const Shuffle = React.createClass({
   },
 
   componentWillUnmount() {
-    React.findDOMNode(this.refs.container).removeChild(this._portalNode);
+    ReactDom.findDOMNode(this.refs.container).removeChild(this._portalNode);
     window.removeEventListener('resize', this._renderClonesInitially);
   },
 
@@ -173,7 +172,7 @@ const Shuffle = React.createClass({
     this._portalNode.style.left = '0px';
     this._portalNode.style.top = '0px';
     this._portalNode.style.position = 'absolute';
-    React.findDOMNode(this.refs.container).appendChild(this._portalNode);
+    ReactDom.findDOMNode(this.refs.container).appendChild(this._portalNode);
   },
 
   _addTransitionEndEvent() {
@@ -217,7 +216,7 @@ const Shuffle = React.createClass({
     let positions = {};
     React.Children.forEach(this.props.children, (child) => {
       let ref = child.key;
-      let node = React.findDOMNode(this.refs[ref]);
+      let node = ReactDom.findDOMNode(this.refs[ref]);
       let rect = node.getBoundingClientRect();
       let computedStyle = getComputedStyle(node);
       let marginTop = parseInt(computedStyle.marginTop, 10);
@@ -243,17 +242,17 @@ const Shuffle = React.createClass({
       scale: this.props.scale,
       duration: this.props.duration
     });
-    React.render(<Clones {...cloneProps}/>, this._portalNode);
+    ReactDom.render(<Clones {...cloneProps}/>, this._portalNode);
     this.setState({ready: true});
   },
 
   _renderClones(props, cb) {
-    React.render(<Clones {...props}/>, this._portalNode, cb);
+    ReactDom.render(<Clones {...props}/>, this._portalNode, cb);
   },
 
   _childrenWithRefs() {
     return React.Children.map(this.props.children, (child) =>
-      cloneWithProps(child, {ref: child.key})
+      React.cloneElement(child, {ref: child.key})
     );
   },
 

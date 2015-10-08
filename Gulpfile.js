@@ -16,8 +16,7 @@ var webpackDistConfig = require('./webpack.dist.config.js'),
     webpackDevConfig = require('./webpack.config.js');
 
 gulp.task('open', function(){
-  gulp.src('./demo/index.html')
-  .pipe(open('',{url: 'http://localhost:8080/webpack-dev-server/'}));
+  open('',{url: 'http://localhost:8080/webpack-dev-server/'});
 });
 
 gulp.task('clean', function(cb){

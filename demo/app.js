@@ -1,6 +1,7 @@
 'use strict';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDom from 'react-dom';
 import Shuffle from '../src/Shuffle';
 
 const alphabet = [
@@ -53,5 +54,5 @@ const App = React.createClass({
 
 const content = document.getElementById('content');
 
-React.render(<App/>, content)
+ReactDom.render(<App/>, content)
 
