@@ -149,6 +149,7 @@ const Shuffle = React.createClass({
   },
 
   componentWillUnmount() {
+    ReactDom.unmountComponentAtNode(this._portalNode);
     ReactDom.findDOMNode(this.refs.container).removeChild(this._portalNode);
     window.removeEventListener('resize', this._renderClonesInitially);
   },
