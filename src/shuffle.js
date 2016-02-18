@@ -243,12 +243,12 @@ const Shuffle = React.createClass({
       scale: this.props.scale,
       duration: this.props.duration
     });
-    ReactDom.render(<Clones {...cloneProps}/>, this._portalNode);
+    ReactDom.unstable_renderSubtreeIntoContainer(this, <Clones {...cloneProps}/>, this._portalNode);
     this.setState({ready: true});
   },
 
   _renderClones(props, cb) {
-    ReactDom.render(<Clones {...props}/>, this._portalNode, cb);
+    ReactDom.unstable_renderSubtreeIntoContainer(this, <Clones {...props}/>, this._portalNode, cb);
   },
 
   _childrenWithRefs() {
