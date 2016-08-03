@@ -257,12 +257,13 @@ const Shuffle = React.createClass({
   },
 
   render() {
-    var showContainer = this.props.initial ? 0 : 1;
+    let { initial, fade, duration, ...props } = this.props;
+    var showContainer = initial ? 0 : 1;
     if (this.state.ready) {
       showContainer = 0;
     }
     return (
-      <div ref="container" style={{position: 'relative'}}>
+      <div ref="container" style={{position: 'relative'}} {...props}>
         <div style={{opacity: showContainer}}>
           {this._childrenWithRefs()}
         </div>
