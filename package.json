@@ -6,7 +6,7 @@
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "object-assign": "^4.0.1",
-    "react-addons-transition-group": "^15.3.0",
+    "react-addons-transition-group": "^15.0.0 || ^0.14.0",
     "react-tween-state": "^0.1.5"
   },
   "peerDependencies": {
