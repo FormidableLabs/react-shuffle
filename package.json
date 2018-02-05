@@ -75,5 +75,6 @@
   "bugs": {
     "url": "https://github.com/FormidableLabs/react-shuffle/issues"
   },
-  "homepage": "https://github.com/FormidableLabs/react-shuffle"
+  "homepage": "https://github.com/FormidableLabs/react-shuffle",
+  "sideEffects": false
 }
