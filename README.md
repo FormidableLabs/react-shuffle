@@ -1,14 +1,14 @@
-#react-shuffle
+# react-shuffle
 
 Animated shuffling of child components
 
-###Install
+### Install
 
 ```
 npm install react-shuffle
 ```
 
-###Preview
+### Preview
 
 ![http://i.imgur.com/B1RFfvj.gif](http://i.imgur.com/B1RFfvj.gif)
 
