@@ -1,10 +1,8 @@
+[![Maintenance Status][maintenance-image]](#maintenance-status)
+
 # react-shuffle
 
 Animated shuffling of child components
-
-### Maintenance Level: Archived
-
-This project is no longer maintained by Formidable. We are no longer responding to issues or pull requests unless they relate to security concerns. We encourage interested developers to fork this project and make it their own!
 
 ### Install
 
@@ -54,3 +52,10 @@ module.exports = App;
 ### Shout out
 
 react-shuffle is heavily inspired by Ryan Florences Magic Move demo https://youtu.be/z5e7kWSHWTg
+
+### Maintenance Level
+
+**Archived:** This project is no longer maintained by Formidable. We are no longer responding to issues or pull requests unless they relate to security concerns. We encourage interested developers to fork this project and make it their own!
+
+
+[maintenance-image]: https://img.shields.io/badge/maintenance-archived-red.svg
